@@ -56,6 +56,13 @@ class Lunchbot:
             end_day_pos = len(self.menu)
 
         return ' '.join(self.menu[self.dict.get(day + ":"):end_day_pos])
+    def get_week(self):
+        """Returns entire week:"""
+        pdf = self.pdf_content
+        pdf = pdf.replace("\n\n", "\n")
+        for day in self.dict.keys():
+            pdf = pdf.replace(day, "\n"+day)
+        return "\n".join(pdf.split("\n")[3:])
 
 if __name__ == '__main__':
 
