@@ -3,3 +3,5 @@ __pycache__/
 .python-version
 config.ini
 email2text.egg-info
+creds.json
+token.json

@@ -1,9 +1,9 @@
 from lunch_bot_getter import Lunchbot
 #from url_getter import Menu
-from email2text import TextBot #https://github.com/js802025/email2text
+#from email2text import TextBot #https://github.com/js802025/email2text
 from datetime import date
 import configparser
-
+from email2text.gmailbot import Gmailbot
 
 
 ##menu = Menu()
@@ -28,7 +28,6 @@ if __name__ == '__main__':
     config = configparser.ConfigParser()
     config.read("config.ini")
     username = config.get("email", "username")
-    password = config.get("email", "password")
-    text = TextBot(username, password, "imap.gmail.com", "smtp.gmail.com", handle_messages=lunch)
-    text.start()
-    
+  #  password = config.get("email", "password")
+    text = Gmailbot(username, "token.json", handle_messages=lunch)
+    text.start()    
